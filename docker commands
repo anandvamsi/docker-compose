@@ -24,6 +24,14 @@ docker update --cpu-shares 256 -m 250M container-id
 
 #Docker logs of the container
 docker logs -f nginx
+docker logs <container_id> --timestamps
+docker logs <container_id> --since (or --until) YYYY-MM-DD
+docker logs <container_id> --tail N
+docker logs <container_id> --follow
+docker logs <container_id> | grep pattern
+docker logs <container_id> | grep -i error
+docker-compose logs
+
 
 
 #Docker commits chnages to image
