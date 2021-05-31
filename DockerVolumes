@@ -1,0 +1,31 @@
+#Create a docker volumne
+$ docker volume create my-vol
+
+#$ docker volume ls
+local               my-vol
+
+#Inspect a volume
+$ docker volume inspect my-vol
+[
+    {
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Options": {},
+        "Scope": "local"
+    }
+
+
+#Mounting a volume to conatiner
+docker run -d \
+  --name devtest \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+  
+  --->>------
+  "using -v option"
+  $ docker run -d \
+  --name devtest \
+  -v myvol2:/app \
+  nginx:latest
