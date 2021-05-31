@@ -1,0 +1,35 @@
+
+Install python-py pip module
+pip install python-pip
+
+##Install ansible
+yum install ansible.
+
+------------------dockerlogin script-------------------------
+---
+- hosts: localhost
+  gather_facts: yes
+  tasks:
+
+
+  - name: Log into DockerHub
+    docker_login:
+      registry_url: index.docker.io
+      username: anandXXXXX
+      password: XXXX
+      
+------------------------------------------------------------
+vim dockerlogin.yml
+# ansible-playbook dockerlogin.yml
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ****************************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Log into DockerHub] *******************************************************************************************************************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
