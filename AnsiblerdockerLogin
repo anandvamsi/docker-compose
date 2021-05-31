@@ -33,3 +33,27 @@ changed: [localhost]
 
 PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+
+
+Task 2:
+-------
+
+Pulling the image from docker hub
+
+---
+- hosts: localhost
+  gather_facts: yes
+  tasks:
+
+
+  - name: Log into DockerHub
+    docker_login:
+      registry_url: index.docker.io
+      username: anandXXX
+      password: XXXXX
+
+  - name: "Pulling docker image"
+    docker_image:
+      name: anandXXXX/ubuntuapache
