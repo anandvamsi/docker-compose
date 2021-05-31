@@ -57,3 +57,15 @@ Pulling the image from docker hub
   - name: "Pulling docker image"
     docker_image:
       name: anandXXXX/ubuntuapache
+
+
+------------------------------
+
+Tasks 3
+##Logout from docker hub
+- name: Log out of DockerHub
+  docker_login:
+    state: absent
+    
+    
+
