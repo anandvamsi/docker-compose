@@ -1,0 +1,29 @@
+
+Basic Commands
+docker –version
+docker pull <image name>    -This command is used to pull images from the docker repository(hub.docker.com)
+docker run -it -d <image name>  - This command is used to create a container from an image
+docker ps -  This command is used to list the running containers
+docker ps -a  - This command is used to show all the running and exited containers
+docker exec -it <container id> bash  -  This command is used to access the running container
+docker stop <container id>  - This command stops a running container
+docker kill <container id> - This command kills the container by stopping its execution immediately
+docker stop <container id> - container time to shutdown gracefully
+docker commit <conatainer id> <username/imagename> - This command creates a new image of an edited container on the local system
+docker login - This command is used to login to the docker hub repository
+docker push <username/image name> - This command is used to push an image to the docker hub repository
+docker images - This command lists all the locally stored docker images
+docker rm <container id> - This command is used to delete a stopped container
+docker rmi <image-id> - This command is used to delete an image from local storage
+docker build <path to docker file> - This command is used to build an image from a specified docker file
+docker run -it -p 9000:80 --name=debian_container1 debian -  Launching a container with ‘docker run’ command
+docker run -it -d -p 9001:80 --name=web_container centos:7 -  Launching a Container in detach mode
+docker attach {container_name or container_id} - Getting Container Console with ‘docker attach’
+docker save debian -o mydebian.tar - Save and Load Docker Container Image to/from a tar 
+docker load -i mydebian.tar - Load Docker Image from tar file.
+docker logs {container_name_or_container_id} - Fetching Logs from the Container
+docker stats  -  Containers’ resource usage statistics
+docker stats --no-stream -  Resource usage statistics without live streaming
+docker top {Container_Name_OR_ID} - We can display the running processes of a container with ‘docker top‘ command.
+docker inspect <container_name> | grep IPAddress | cut -d '"' -f 4
+docker tag centos:7 mycentos7:v1 Set Tag / Name to Docker Image
