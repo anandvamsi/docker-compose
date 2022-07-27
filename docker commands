@@ -244,4 +244,6 @@ docker-compose scale node1=3 node2=3
 
 
 
+To Autmatically start the container even after the server start Apply the below command
+#docker run -d --restart unless-stopped -p 8080:80 nginx
 
