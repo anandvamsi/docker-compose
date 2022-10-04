@@ -1,5 +1,5 @@
 
-Example:
+Example: for cmd
 FROM node:8.11-slim
 # command executable and version
 CMD ["-v"]
@@ -10,7 +10,7 @@ docker build -t dockernode -f Dockernode .
 docker run -it dockerfile3
 
 
-Example2:
+Example2: for workdir 
 FROM node:8.11-slim
 WORKDIR /usr/node
 WORKDIR app
@@ -19,3 +19,8 @@ RUN pwd
 
 # command executable and version
 ENTRYPOINT ["node"]
+
+#commands
+docker build -t dockerwd -f Dockerwd .
+docker run -it dockerwd
+docker exec -it <container id> bash
