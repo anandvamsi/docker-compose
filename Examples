@@ -1,0 +1,21 @@
+
+Example:
+FROM node:8.11-slim
+# command executable and version
+CMD ["-v"]
+ENTRYPOINT ["node"]
+
+#commands
+docker build -t dockernode -f Dockernode .
+docker run -it dockerfile3
+
+
+Example2:
+FROM node:8.11-slim
+WORKDIR /usr/node
+WORKDIR app
+
+RUN pwd
+
+# command executable and version
+ENTRYPOINT ["node"]
