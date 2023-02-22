@@ -1,0 +1,5 @@
+Where the docker volumes are stored?
+-  /var/lib/docker/volumes
+
+How does communication happen between Docker client and Docker Daemon?
+You can communicate between Docker client and Docker Daemon with the combination of Rest API, socket.IO, and TCP.
