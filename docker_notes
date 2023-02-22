@@ -1,11 +1,23 @@
 Docker Notes
 
 #Topic
+Docker lifecycle
 1	  Sharing CPU and Memory
 2.	How to links containers using --link
 3.	What is the difference between ENTRYPOINT and CMD
 4.	Container hardending/security
 5.  Docker networking commands
+
+#Docker Lifecycle.
+Create a container
+Run the container
+Pause the container(optional)
+Un-pause the container(optional)
+Start the container
+Stop the container
+Restart the container
+Kill the container
+Destroy the container
 
 
 
