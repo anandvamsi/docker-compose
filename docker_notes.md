@@ -1,6 +1,48 @@
-Docker Notes
+# Docker
 
-#Topic
+## Topics
+
+- Need of containerization 
+- what is docker.
+-  VM vs Containers
+-  Container lifecycle policy.
+- Installation of docker.
+- Docker Images
+- Create a hello world container.
+- Create multiple containers from save Image.
+- Docker container CLI commands.
+- Docker Volumes
+- Docker networking
+- How to Create a Docker file.
+- Building custom docker Image.
+- Pushing to docker image to repository.
+- Trivy and Dockle for container scanning
+
+## Need of containerization 
+Before installing any software we have to find out what operating system does it run on, what resources does it need, what other software does it depend upon, 
+is there any other software already installed that might interfere with the installation, and finally, how to install it .
+
+```bash
+The more software we use, the more difficult is becomes to manage and run them.
+```
+
+![Alt text](relative/path/to/image.png)
+
+After installation comes the process of upgrading and maintaining the software. ```Computers have more that one application running. What if one application needs upgrade in the dependency but other application runs on older version of the dependency?``` 
+Finally, when we want to remove a software we need to remember all the changes we had to do to install the software and then undo them after installation
+
+
+
+## What is Docker
+Docker is a tool that simplifies the process of ```installing, running, distributing and deleting``` software
+
+
+## Docker life cycle policy
+
+
+
+
+
 Docker lifecycle
 1	  Sharing CPU and Memory
 2.	How to links containers using --link
