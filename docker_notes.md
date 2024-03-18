@@ -26,7 +26,7 @@ is there any other software already installed that might interfere with the inst
 The more software we use, the more difficult is becomes to manage and run them.
 ```
 
-![Alt text](relative/path/to/image.png)
+![Alt text](containerization.PNG)
 
 After installation comes the process of upgrading and maintaining the software. ```Computers have more that one application running. What if one application needs upgrade in the dependency but other application runs on older version of the dependency?``` 
 Finally, when we want to remove a software we need to remember all the changes we had to do to install the software and then undo them after installation
