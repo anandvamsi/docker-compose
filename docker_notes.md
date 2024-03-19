@@ -31,15 +31,59 @@ The more software we use, the more difficult is becomes to manage and run them.
 After installation comes the process of upgrading and maintaining the software. ```Computers have more that one application running. What if one application needs upgrade in the dependency but other application runs on older version of the dependency?``` 
 Finally, when we want to remove a software we need to remember all the changes we had to do to install the software and then undo them after installation
 
+This can solved using containers, Here is the containized version of above problem.
+
+![Alt text](container.png)
+
+
+
+## what is the difference between container and a VM.
+
 
 
 ## What is Docker
+Docker is an open-source platform that enables developers to automate the deployment of applications inside lightweight, portable containers. ```These containers bundle the application together with all its dependencies, libraries, and configuration files, ensuring consistency across different environments, such as development, testing, and production```
+
 Docker is a tool that simplifies the process of ```installing, running, distributing and deleting``` software
 
+## Key components of Docker include:
+```Docker Engine```: The core of Docker, responsible for creating and managing containers. It consists of a daemon (dockerd) and a REST API that allows users to interact with Docker.
 
-## Docker life cycle policy
+```DockerFile```:  The text file that contains instructions for building Docker images.
+
+```DockerImage```:  A lightweight, standalone, and executable package that contains everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and configuration files. Images are built from Dockerfiles and can be stored in Docker registries.
+
+```Docker Container```:  A runtime instance of a Docker image. Containers run isolated from one another and from the host system, but share the kernel of the host operating system. They can be started, stopped, moved, and deleted, providing a consistent environment for running applications
+
+```Docker Registry```: A repository for storing and sharing Docker images. Docker Hub is the default public registry, hosting millions of Docker images, but organizations can set up private registries to store proprietary or sensitive images.
 
 
+## Docker Image and container 
+
+![Alt text](DockerImageContainer.png)
+
+## Installing of a Docker
+```bash
+sudo yum install docker
+systemctl enable docker
+systemctl start docker
+```
+
+## States of a container.
+- ```Creation```: The container is created using a Docker image. This involves pulling the necessary image layers from a registry (such as Docker Hub) if they're not already available locally, and then instantiating the container based on the image's specifications.
+
+- ```Running```: Once created, the container enters the running state. It executes the command specified in the Dockerfile.
+
+- ```Paused```: Containers can be paused, which suspends all processes running within the container.
+Pausing a container can be useful for troubleshooting or for temporarily halting operations without stopping the container entirely.
+
+- ```Restarting```: Restarting a container involves stopping it and then starting it again.
+- ```stopping```: : The container is stopped either manually by the user or automatically as a result of a specific event or condition.
+- ```Deletion```: Finally, the container is deleted, removing it from the Docker host system. This frees up resources such as disk space and memory. Containers can be deleted manually by the user,
+
+
+## Docker vs VM
+![Alt text](DockervsVM.png)
 
 
 
