@@ -200,8 +200,14 @@ docker restart <container id>
 ### To Remove a container 
 ```
 docker rm <container id>
+docker rm $(docker ps -q -f “status=exited”)
+Remove all the container
+docker rm -f $(docker ps -aq) 
 ```
-
+### Create a tar file of contianer and extract
+```bash
+docker save -o <filename>.tar
+docker load -i <filename>.tar
 
 
 
