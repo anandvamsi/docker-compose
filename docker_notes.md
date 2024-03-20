@@ -9,7 +9,7 @@
 - Installation of docker.
 - Docker Images
 - Create a hello world container.
-- Create multiple containers from save Image.
+- Create multiple containers from same  Image.
 - Docker container CLI commands.
 - Docker Volumes
 - Docker networking
@@ -86,24 +86,67 @@ Pausing a container can be useful for troubleshooting or for temporarily halting
 ![Alt text](DockervsVM.png)
 
 
+## Docker CLI commands.
 
-Docker lifecycle
-1	  Sharing CPU and Memory
-2.	How to links containers using --link
-3.	What is the difference between ENTRYPOINT and CMD
-4.	Container hardending/security
-5.  Docker networking commands
+### To search the docker image from docker hub
 
-#Docker Lifecycle.
-Create a container
-Run the container
-Pause the container(optional)
-Un-pause the container(optional)
-Start the container
-Stop the container
-Restart the container
-Kill the container
-Destroy the container
+```bash
+docker search <image-name>
+docker search nginx
+```
+### To pull/Download the docker image from docker hub
+```bash
+syntax :: docker pull [OPTIONS] IMAGE[:TAG|@DIGEST]
+docker pull ubuntu:20.04
+```Note:: ubuntu is the image and 20:04 is the tag```
+docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+8a1e25ce7c4f: Pull complete
+e78b137be355: Pull complete
+39fc875bd2b2: Pull complete
+035788421403: Pull complete
+87c3fb37cbf2: Pull complete
+c5cdd1ce752d: Pull complete
+33952c599532: Pull complete
+Digest: sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+```
+### To view the docker images.
+```bash
+ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+nginx         latest    92b11f67642b   4 weeks ago     187MB
+hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
+root@ubuntuserver:~#
+```
+### To Create the docker container
+```bash
+syntax: docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Method 1:
+Daemonized mode(-d)
+docker run -d --name docker-nginx1 -p 80:80 nginx
+docker run -d --name my-nginx-container -p 8080:80 nginx
+8080 is the host port
+80 is the container port
+```
+### To view the docker container status
+```bash
+docker ps
+docker ps -a
+```
+
+### To start/stop/restat container.
+```bash
+di
+
+
+
+
+
+
 
 
 
