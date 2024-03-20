@@ -113,6 +113,9 @@ Digest: sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
 Status: Downloaded newer image for nginx:latest
 docker.io/library/nginx:latest
 ```
+
+
+
 ### To view the docker images.
 ```bash
  docker images
@@ -121,26 +124,83 @@ nginx         latest    92b11f67642b   4 weeks ago     187MB
 hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
 root@ubuntuserver:~#
 ```
+
+### To view the properties of an image
+```bash
+docker inspect d2c94e258dcb
+```
+
+
+### To Remove a docker image.
+```bash
+docker rmi <image id>
+```
+
+
 ### To Create the docker container
 ```bash
 syntax: docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 Method 1:
 Daemonized mode(-d)
+docker run -p <host_port>:<container_port> <image_name>
 docker run -d --name docker-nginx1 -p 80:80 nginx
+
 docker run -d --name my-nginx-container -p 8080:80 nginx
 8080 is the host port
 80 is the container port
-```
-### To view the docker container status
-```bash
-docker ps
-docker ps -a
+
+Method 2:
+With interactive terminal
+Open a shell inside a running container:
+
+docker run -itd nginx
+docker exec -it f92bec06da18 bash
+root@f92bec06da18:/#
+ctrl+d  to come out of the terminal
 ```
 
-### To start/stop/restat container.
+### Fetch and follow the logs of a container:
 ```bash
-di
+docker logs -f <container_name>
+```
+
+### To inspect the running container
+```bash
+docker inspect <container_name>
+```
+
+### To view the docker container status
+```bash
+Running container 
+docker ps
+root@ubuntuserver:~# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+fa920b0fb1bb   nginx     "/docker-entrypoint.…"   19 minutes ago   Up 19 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp       docker-nginx1
+
+#stopped/exited containers.
+docker ps --all
+docker ps -a
+
+```
+### Shows all running processes in an existing container
+```bash
+ docker top fa920b0fb1bb
+```
+
+
+### To start/stop/restat/kill container.
+```bash
+docker stop <container id>
+docker start <container id>
+docker kill <container id>
+docker restart <container id>
+```
+
+### To Remove a container 
+```
+docker rm <container id>
+```
 
 
 
