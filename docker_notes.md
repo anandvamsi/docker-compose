@@ -160,6 +160,12 @@ root@f92bec06da18:/#
 ctrl+d  to come out of the terminal
 ```
 
+### To expose multiple ports 
+```bash
+docker run -p 8080:80 -p 9090:90 <image_name>
+```
+
+
 ### Fetch and follow the logs of a container:
 ```bash
 docker logs -f <container_name>
