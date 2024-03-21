@@ -136,6 +136,10 @@ docker inspect d2c94e258dcb
 docker rmi <image id>
 ```
 
+## To Tag a docker Image
+```bash
+ docker tag <image-name>[:tag][username/] <new-image-name>.[:new-tag]
+```
 
 ### To Create the docker container
 ```bash
