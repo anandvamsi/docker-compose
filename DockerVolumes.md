@@ -47,3 +47,10 @@ docker run -d \
 ```
 
 Note:- we can mount different container to same volume storage
+
+## To remove the storage
+But make sure no container is using the storage.
+
+```bash
+docker volume rm shared_storage
+```
