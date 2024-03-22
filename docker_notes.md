@@ -211,13 +211,38 @@ docker restart <container id>
 ```
 docker rm <container id>
 docker rm $(docker ps -q -f “status=exited”)
+
 Remove all the container
 docker rm -f $(docker ps -aq) 
 ```
 ### Create a tar file of contianer and extract
 ```bash
-docker save -o <filename>.tar
-docker load -i <filename>.tar
+docker save -o myimage_latest.tar myimage:latest
+## Saving multiple containers
+docker save -o myimages.tar image1:tag1 image2:tag2
+
+docker load -i nginx.tar
+982d8faa2fe9: Loading layer [==================================================>]  15.87kB/15.87kB
+Loaded image: nginx:v2
+
+```
+
+## Docker commit ; How add changes to container and create a new image.
+```bash
+## Assuming changes are done in the conatiner.
+docker commit <container-id> image:<new-version>
+
+## Now spin a new container from the new image:<new-version>
+```
+
+## How to allocate CPU and Memory to the container
+- we can allocate cpu by --cpu option and memory by --memory option
+```
+docker run -itd --cpus 2 nginx:v2
+
+docker run -itd --memory 200 nginx:v2
+docker inspect 6b5789f4de71 | grep -w Memory
+"Memory": 209715200,
 ```
 
 
