@@ -235,6 +235,34 @@ docker commit <container-id> image:<new-version>
 ## Now spin a new container from the new image:<new-version>
 ```
 
+## Restart Policies of Docker container
+Docker provides several restart policies that dictate how containers should behave when they exit.
+
+ ### No
+Docker does not automatically restart the container, regardless of the exit status.
+ ```bash
+docker run --restart=no myimage
+```
+### Always
+Docker always restarts the container, regardless of the exit status. This is useful for critical services that should always be running.
+```bash
+docker run --restart=always myimage
+```
+### Unless-stopped
+Docker restarts the container unless it is explicitly stopped by the user.
+```bash
+docker run --restart=unless-stopped myimage
+```
+
+### On-failure
+```bash
+docker run --restart=on-failure[:max-retries] myimage
+docker run --restart=on-failure:3 myimage
+```
+
+
+
+
 ## How to allocate CPU and Memory to the container
 - we can allocate cpu by --cpu option and memory by --memory option
 ```
