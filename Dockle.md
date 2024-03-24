@@ -52,3 +52,9 @@ INFO    - CIS-DI-0008: Confirm safety of setuid/setgid files
         * setuid file: urwxr-xr-x usr/bin/umount
         * setgid file: grwxr-xr-x usr/sbin/unix_chkpwd
 ```
+
+# To share the data in json format.
+
+```bash
+dockle -f json -o results.json nginx
+```
