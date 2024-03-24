@@ -15,6 +15,8 @@ There are both public and private Docker registries available. Public registries
 Overall, Docker registries simplify the process of managing and distributing containerized applications, 
 making it easier for developers to build and deploy their software using Docker containers
 
+![Alt text](DockerImageContainer.png)
+
 ## How to upload and download docker image
 
 ### Docker push
