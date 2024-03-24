@@ -12,6 +12,8 @@ This allows developers to ```easily distribute their applications and services``
 There are both public and private Docker registries available. Public registries, such as Docker Hub, allow anyone to upload and download images freely. 
 ```Private registries```, on the other hand, are often used by organizations to securely store proprietary or sensitive images within their own infrastructure
 
+Overall, Docker registries simplify the process of managing and distributing containerized applications, 
+making it easier for developers to build and deploy their software using Docker containers
 
 ## How to upload and download docker image
 
