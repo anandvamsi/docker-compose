@@ -1,24 +1,41 @@
-sudo apt-get install wget apt-transport-https gnupg lsb-release
-
-wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
-
-echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
-
-sudo apt-get update
-
-sudo apt-get install trivy
+# Trivy
+Trivy is a simple and comprehensive vulnerability scanner for containers and other artifacts.
 
 
----COMMANDS---
+# Capabilites of Trivy scanner.
 
-trivy image imagename
 
-trivy fs --security-checks vuln,config   Folder_name_OR_Path
 
-trivy image --severity HIGH,CRITICAL image_name
+## Installation of trivy on ubuntu server
+```bash
+wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.deb
+sudo dpkg -i trivy_0.18.3_Linux-64bit.deb
+```
 
-trivy image -f json -o results.json image_name
+## To Scan the image
+```bash
+trivy image imagename3
+trivy image --severity HIGH,CRITICAL nginx
+```
 
-trivy repo repo-url
+## To output the data in Json file
+```
+trivy image -f json -o results.json  nginx
+```
 
-trivy k8s --report summary cluster
+## To scan the YAML files (for k8s)
+```bash
+trivy fs --security-checks vuln,config  <path>
+```
+
+## Trivy scanning the git repos
+```bash
+trivy repo https://github.com/knqyf263/trivy-ci-test
+```
+
+## Trivy scanning local os path.
+```bash
+trivy fs /usr/bin/
+```
+
+ 
