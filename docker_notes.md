@@ -164,6 +164,10 @@ root@f92bec06da18:/#
 ctrl+d  to come out of the terminal
 ```
 
+## Host port and ## container port
+![Alt text](dockerport.png)
+
+
 ### To expose multiple ports 
 ```bash
 docker run -p 8080:80 -p 9090:90 <image_name>
