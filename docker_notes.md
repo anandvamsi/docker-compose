@@ -141,6 +141,12 @@ docker rmi <image id>
  docker tag <image-name>[:tag][username/] <new-image-name>.[:new-tag]
 ```
 
+## To remove all the images
+```bash
+docker image rm $(docker image ls -q)
+```
+Note: Alway stop the container and remove the containers then
+
 ### To Create the docker container
 ```bash
 syntax: docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
