@@ -63,3 +63,11 @@ Alternatively, you can use the ENTRYPOINT instruction to specify the main comman
 
 
 ## Understanding the difference between CMD and ENTRYPOINT.
+
+ENTRYPOINT specifies the executable to run when the container starts. It defines the default application that will be run within the container.
+CMD specifies the default command and/or parameters for the container.
+```bash
+FROM ubuntu
+ENTRYPOINT ["echo"]
+CMD ["Hello, World!"]
+```
