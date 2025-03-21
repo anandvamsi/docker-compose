@@ -38,6 +38,8 @@ This can solved using containers, Here is the containized version of above probl
 
 
 ## what is the difference between container and a VM.
+## Docker vs VM
+![Alt text](DockervsVM.png)
 
 
 
@@ -58,6 +60,19 @@ Docker is a tool that simplifies the process of ```installing, running, distribu
 ```Docker Registry```: A repository for storing and sharing Docker images. Docker Hub is the default public registry, hosting millions of Docker images, but organizations can set up private registries to store proprietary or sensitive images.
 
 
+## States of a container.
+- ```Creation```: The container is created using a Docker image. This involves pulling the necessary image layers from a registry (such as Docker Hub) if they're not already available locally, and then instantiating the container based on the image's specifications.
+
+- ```Running```: Once created, the container enters the running state. It executes the command specified in the Dockerfile.
+
+- ```Paused```: Containers can be paused, which suspends all processes running within the container.
+Pausing a container can be useful for troubleshooting or for temporarily halting operations without stopping the container entirely.
+
+- ```Restarting```: Restarting a container involves stopping it and then starting it again.
+- ```stopping```: : The container is stopped either manually by the user or automatically as a result of a specific event or condition.
+- ```Deletion```: Finally, the container is deleted, removing it from the Docker host system. This frees up resources such as disk space and memory. Containers can be deleted manually by the user,
+
+
 ## Docker Image and container 
 
 ![Alt text](DockerImageContainer.png)
@@ -72,6 +87,18 @@ systemctl start docker
 For ubuntu nodes
 sudo apt-get install docker.io
 ```
+
+## What is docker daemon
+The Docker daemon (dockerd) is the background process that manages Docker objects such as containers, images, networks, and volumes.
+It listens for Docker API requests and interacts with the operating system to perform the necessary actions.
+### Server Role (Daemon - dockerd)
+- The daemon listens for API requests from Docker clients.
+- It handles operations like container lifecycle management, networking, and storage.
+- Runs in the background on the host machine.
+
+### Client Role (Docker CLI - docker)
+- The Docker CLI (docker command) is a client that sends requests to the daemon using the Docker API.
+![Alt text](daemon.PNG)
 
 ## Info about docker
 ```bash
@@ -130,25 +157,30 @@ Server:
 ```
 
 
-## States of a container.
-- ```Creation```: The container is created using a Docker image. This involves pulling the necessary image layers from a registry (such as Docker Hub) if they're not already available locally, and then instantiating the container based on the image's specifications.
+## To get the root directory of docker 
+```bash
+ docker info | grep "Docker Root Dir"
+ Docker Root Dir: /var/lib/docker
 
-- ```Running```: Once created, the container enters the running state. It executes the command specified in the Dockerfile.
+ls -l /var/lib/docker
+total 44
+drwx--x--x  4 root root 4096 Mar 21 16:47 buildkit
+drwx--x---  2 root root 4096 Mar 21 17:09 containers
+-rw-------  1 root root   36 Mar 21 16:47 engine-id
+drwx------  3 root root 4096 Mar 21 16:47 image
+drwxr-x---  3 root root 4096 Mar 21 16:47 network
+drwx--x--- 10 root root 4096 Mar 21 17:09 overlay2
+drwx------  4 root root 4096 Mar 21 16:47 plugins
+drwx------  2 root root 4096 Mar 21 16:47 runtimes
+drwx------  2 root root 4096 Mar 21 16:47 swarm
+drwx------  2 root root 4096 Mar 21 17:04 tmp
+drwx-----x  2 root root 4096 Mar 21 16:47 volumes
+```
 
-- ```Paused```: Containers can be paused, which suspends all processes running within the container.
-Pausing a container can be useful for troubleshooting or for temporarily halting operations without stopping the container entirely.
 
-- ```Restarting```: Restarting a container involves stopping it and then starting it again.
-- ```stopping```: : The container is stopped either manually by the user or automatically as a result of a specific event or condition.
-- ```Deletion```: Finally, the container is deleted, removing it from the Docker host system. This frees up resources such as disk space and memory. Containers can be deleted manually by the user,
-
-
-## Docker vs VM
-![Alt text](DockervsVM.png)
 
 
 ## Docker CLI commands.
-
 ### To search the docker image from docker hub
 
 ```bash
@@ -179,7 +211,7 @@ docker.io/library/nginx:latest
 
 ### To view the docker images.
 ```bash
- docker images
+docker images
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 nginx         latest    92b11f67642b   4 weeks ago     187MB
 hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
