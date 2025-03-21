@@ -64,10 +64,71 @@ Docker is a tool that simplifies the process of ```installing, running, distribu
 
 ## Installing of a Docker
 ```bash
+For centos nodes
 sudo yum install docker
 systemctl enable docker
 systemctl start docker
+
+For ubuntu nodes
+sudo apt-get install docker.io
 ```
+
+## Info about docker
+```bash
+sudo docker info
+Client:
+ Version:    26.1.3
+ Context:    default
+ Debug Mode: false
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 26.1.3
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version:
+ runc version:
+ init version:
+ Security Options:
+  apparmor
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.8.0-55-generic
+ Operating System: Ubuntu 24.04.2 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 1
+ Total Memory: 1.922GiB
+ Name: docker
+ ID: 51618d20-a38c-4ea3-9cc4-ca144bfac0e4
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+```
+
 
 ## States of a container.
 - ```Creation```: The container is created using a Docker image. This involves pulling the necessary image layers from a registry (such as Docker Hub) if they're not already available locally, and then instantiating the container based on the image's specifications.
