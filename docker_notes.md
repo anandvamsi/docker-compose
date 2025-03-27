@@ -303,9 +303,13 @@ docker ps -a
 
 
 ### To start/stop/restat/kill container.
+Use when a container is unresponsive, hanging, or needs immediate shutdown.
 ```bash
+Gracefully stops a container by sending a SIGTERM signal, allowing it to clean up before exiting.
 docker stop <container id>
 docker start <container id>
+
+Forcibly stops a container immediately by sending a SIGKILL signal, without cleanup.
 docker kill <container id>
 docker restart <container id>
 ```
