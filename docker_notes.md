@@ -263,6 +263,14 @@ root@f92bec06da18:/#
 ctrl+d  to come out of the terminal
 ```
 
+
+## Docker image tagging.
+```bash
+docker tag nginx nginx:new
+docker build -t myapp:$(git rev-parse --short HEAD) .
+docker tag myapp:latest myrepo/myapp:v1.0
+```
+
 ## Host port and ## container port
 ![Alt text](dockerport.png)
 
