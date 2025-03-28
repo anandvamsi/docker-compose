@@ -341,8 +341,20 @@ docker load -i nginx.tar
 Loaded image: nginx:v2
 
 ```
+## Docker copy
+if you want to copy the file to docker container 
+```bash
+- copying file from local to container
+docker cp index.html <containerid>:/usr/share/nginx/html/index.html
 
-## Docker commit ; How add changes to container and create a new image.
+- copying file from container to local.
+docker cp  d3d01a19b60d:/usr/share/nginx/html/index.html index.html
+```
+
+## Docker commit - How add changes to container and create a new image.
+docker commit is used to create a new image from a running or stopped container. 
+This is useful in scenarios where you have made changes inside a container (like installing software or modifying files) and want to save those changes as a new image for reuse
+
 ```bash
 ## Assuming changes are done in the conatiner.
 docker commit <container-id> image:<new-version>
