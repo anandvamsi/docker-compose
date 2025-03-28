@@ -40,19 +40,13 @@ $ docker volume inspect my-vol
     }
 ```
 
-## Mounting a volume to conatiner
+## Creating a container with volume mount.
 ```bash
-docker run -d \
-  --name devtest \
-  --mount source=myvol2,target=/app \
-  nginx:latest
-  
-  --->>------
-  "using -v option"
-  $ docker run -d \
-  --name devtest \
-  -v myvol2:/app \
-  nginx:latest
+docker run -itd --name vol_container1 -v mydata:/app/data nginx
+Insert some data  /app/data
+
+#- Createing another container with same volume.
+docker run -itd --name vol_container2 -v mydata:/app/data nginx
 ```
 
 Note:- we can mount different container to same volume storage
