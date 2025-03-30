@@ -123,3 +123,12 @@ http://localhost:8080/
 http://localhost:8080/db
 ```
 
+### Summery
+```bash
+✅ We created a custom Docker network
+✅ Launched a MySQL database inside the network
+✅ Set up a Flask backend to communicate with the database
+✅ Configured Nginx as a reverse proxy for the backend
+✅ Verified that all services communicate via the Docker network
+```
+
