@@ -10,8 +10,13 @@ There are different types of container types
 
 ## Bridge- Default network
 -  Containers can communicate with each other within the same network but are isolated from external networks unless explicitly exposed..
-
 - Each container in the network is assigned its own IP address. Because the network’s bridged to your host, containers are also able to communicate on your LAN and the internet.
+
+```bash
+docker inspect 9b356e563177| grep -i Network
+            "NetworkMode": "bridge",
+```
+
 
 ## Host
 In Docker, the "Host Network" mode allows a container to share the ```network namespace with the Docker host```. 
