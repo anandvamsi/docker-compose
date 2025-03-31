@@ -31,6 +31,31 @@ Overlay networks are required when containers on different Docker hosts need to 
 These networks let you set up your own distributed environments for high availability.
 
 
+## Resolving a container by hostname
+### step0:- Create bridged network
+```bash
+docker network create my_custom_network
+```
+
+### step1:- Create a bridnged network and attach two containers to the network.
+```bash
+docker run -itd --name ng4 --network my_custom_network debian
+docker run -itd --name ng3 --network my_custom_network debian
+```
+### step2: Install the ping command
+```bash
+apt-het update
+apt install -y iputils-ping
+```
+
+ ### Step3: Checking the ping connectivity
+ ```bash
+from the ng4 host :- ping ng3
+from the ng3 host :- ping ng4
+```
+
+
+
 ## Create a network 
 
 ### Step 1:-Creating a network
