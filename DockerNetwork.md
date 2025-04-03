@@ -162,3 +162,29 @@ http://localhost:5000/db
 ✅ Verified that all services communicate via the Docker network
 ```
 
+## To get list of containers of specifc network
+```bash
+docker network inspect my_custom_network --format '{{json .Containers}}' | jq
+{
+  "677ba84b1313fc779444ad06e72402f027173aec244c4b8032fc8dd7ac0813df": {
+    "Name": "mysql-db",
+    "EndpointID": "a1bb880c687db166da127775301298fdd2e23b2c3af2838b2ffd10f1c97fc4ba",
+    "MacAddress": "02:42:ac:13:00:02",
+    "IPv4Address": "172.19.0.2/16",
+    "IPv6Address": ""
+  },
+  "9b9f0bf141dc0fcd9f9c652128891ccc644ed29c7387d468bc5b2b4e130f3bb4": {
+    "Name": "backend",
+    "EndpointID": "e43a35b2ed62ae884392fc7ed2349a1184da15ec9360d392bd90e874ecd13e2b",
+    "MacAddress": "02:42:ac:13:00:03",
+    "IPv4Address": "172.19.0.3/16",
+    "IPv6Address": ""
+  }
+}
+```
+
+## How to connect and disconnect 
+```bash
+docker network disconnect <network_name> <container_name_or_id>
+docker network inspect my_custom_network --format '{{json .Containers}}' | jq
+```
