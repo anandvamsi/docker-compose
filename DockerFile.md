@@ -71,3 +71,68 @@ FROM ubuntu
 ENTRYPOINT ["echo"]
 CMD ["Hello, World!"]
 ```
+
+## Example 1:  Create a docker image for a python application
+### Docker file
+```bash
+# Use the official slim Python image
+FROM python:3.9-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy only requirements first to leverage Docker's layer caching
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application files
+COPY . .
+
+# Expose the application port
+EXPOSE 5000
+
+# Run the application
+CMD ["python", "app.py"]
+```
+
+### Code for the app.py
+```bash
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return "Hello, Dockerized Flask App!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+### code for requiremnt.txt
+```
+flask
+```
+### Execute the code 
+```bash
+docker build -t my-flask-app .
+docker run -p 5000:5000 my-flask-app
+```
+
+
+### Why should we use Slim images
+#### Smaller Size 
+Slim images are significantly smaller than their full versions.
+Example:
+```
+python:3.9 → ~900MB
+python:3.9-slim → ~22MB
+```
+Smaller images reduce disk usage and download times.
+####  Faster Build and Deployment
+#### Improved Security
+slim images remove unnecessary system utilities, reducing security vulnerabilities.
+Fewer attack vectors mean a more secure container.
+#### Lower Memory and CPU Usage
+Less overhead compared to full-sized images.
+Better for cloud environments like AWS, Kubernetes, and OpenShift where resource efficiency matters.
