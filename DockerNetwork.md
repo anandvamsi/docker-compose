@@ -149,8 +149,8 @@ docker run -d --name frontend \
 
 ### Step 8 : Verify the same in the URLs
 ```bash
-http://localhost:8080/
-http://localhost:8080/db
+http://localhost:5000/
+http://localhost:5000/db
 ```
 
 ### Summery
