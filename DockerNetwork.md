@@ -188,3 +188,33 @@ docker network inspect my_custom_network --format '{{json .Containers}}' | jq
 docker network disconnect <network_name> <container_name_or_id>
 docker network inspect my_custom_network --format '{{json .Containers}}' | jq
 ```
+
+
+### How to do bridge between two brige networks.
+
+#### step 1:- Create two custom networks
+```bash
+docker network create ng1
+docker network create ng2
+```
+
+### Create two containers each connect ng1 and ng2
+```bash
+docker run -dit --name n1  --network ng1 debian
+docker run -dit --name n2  --network ng2 debian
+```
+
+### Create third container connect to ng1
+```bash
+docker run -dit --name n3  --network ng1 debian
+```
+
+### Connect the third container to ng2
+```bash
+docker network connect ng2 n3
+```
+
+Now n1 can talk to n3 via bridge ng1 and n2 can talk to n3 via ng2
+
+
+
