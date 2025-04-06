@@ -198,7 +198,7 @@ docker network create ng1
 docker network create ng2
 ```
 
-### Create two containers each connect ng1 and ng2
+### Create two containers each connect n1 and n2
 ```bash
 docker run -dit --name n1  --network ng1 debian
 docker run -dit --name n2  --network ng2 debian
