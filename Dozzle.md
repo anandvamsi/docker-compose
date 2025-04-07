@@ -9,3 +9,20 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 amir20/d
 ```
 
 ![Alt text](Dozzle.png)
+
+## Using docker-compose
+```bash
+version: "3"
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9999:8080
+```
+
+## Filtering capability
+The ability to filter and search through logs allows users to pinpoint specific entries, which is essential for debugging complex applications.
+![Alt text](Dozzle-sql.png)
