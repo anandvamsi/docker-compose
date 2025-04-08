@@ -67,5 +67,67 @@ sudo yum update
 sudo yum install docker-compose-plugin
 ```
 
-## Example of docker compose.
+## Example for building a two tier-app
 
+### Document structure of files
+```bash
+myapp/
+├── app.py
+├── requirements.txt
+└── docker-compose.yml
+```
+
+### Contents of app.py 
+```bash
+from flask import Flask
+import psycopg2
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello from Flask with PostgreSQL!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
+```
+
+## Dockerfile
+```bash
+FROM python:3.9
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "app.py"]
+```
+## requirement.txt
+```bash
+flask
+psycopg2-binary
+```
+
+### Docker-compose file
+```bash
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+```
+
+## To run the app
+```bash
+docker-compose up --build
+```
